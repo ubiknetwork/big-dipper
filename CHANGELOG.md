@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.37.x-patch-10.1
+
+* Fixed a display bug when there is no fee in the tx
+
 ## v0.37.x-patch-10
 
 ### Release Date: 24 Feb 2020
