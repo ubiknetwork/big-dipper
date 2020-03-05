@@ -8,13 +8,13 @@
 
 
 
-const { ApolloServer, gql } = require("apollo-server");
-const MongoClient = require('mongodb').MongoClient;
+// const { ApolloServer, gql } = require("apollo-server");
+// const MongoClient = require('mongodb').MongoClient;
 
-const url = 'mongodb://localhost:27017';
-const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
-client.connect(function (err) {
-  console.log("MONGOdb connected");
-  db = client.db("mongod"); //mongodb database name
-});
+// const url = 'mongodb://localhost:27017';
+// const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
+// client.connect(function (err) {
+//   console.log("MONGOdb connected");
+//   db = client.db("mongod"); 
+// });
 
