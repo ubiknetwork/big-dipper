@@ -3,7 +3,7 @@ const { gql } = require('apollo-server');
 export const typeDefs = gql`
 
 type Transactions {
-    _id: ID!
+    _id: ID
     height: Int
     txhash: String
     raw_log: String
@@ -76,6 +76,10 @@ type Transactions {
 
  extend type Query {
     getTransactions: [Transactions]
+    getTransactionsByID(_id: ID): [Transactions]
+    getTransactionsByHeight(height: Int): [Transactions]
+    getTransactionsByTXHash(txhash: String): [Transactions]
+    
 }
   
   `;

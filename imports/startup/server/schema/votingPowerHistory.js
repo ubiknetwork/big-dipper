@@ -15,6 +15,9 @@ type VotingPowerHistory {
 
  extend type Query {
     getVotingPowerHistory: [VotingPowerHistory]
+    getVotingPowerHistoryByID(_id: ID): [VotingPowerHistory]
+    getVotingPowerHistoryByAddress(address: String): [VotingPowerHistory]
+    getVotingPowerHistoryByHeight(height: Int): [VotingPowerHistory]
 }
   
   `;

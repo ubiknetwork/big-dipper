@@ -2,8 +2,8 @@ const { gql } = require('apollo-server');
 
 export const typeDefs = gql`
 
-  type BlocksCon {
-    _id: ID!
+  type Blocks {
+    _id: ID
     height: Int
     hash: String
     transNum: String
@@ -16,9 +16,10 @@ export const typeDefs = gql`
   }
 
  extend type Query { 
-    blocks: [BlocksCon]
-    getBlocksByHeight(height: String): [BlocksCon]
-    getBlocksByHash(hash: String): [BlocksCon]
+    getBlocks: [Blocks]
+    getBlocksByID(_id: ID): [Blocks]
+    getBlocksByHeight(height: String): [Blocks]
+    getBlocksByHash(hash: String): [Blocks]
 
 }
   `;

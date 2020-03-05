@@ -155,8 +155,8 @@ export const typeDefs = gql`
 
 
   extend type Query { 
-    chain: [Chain]
-    getByChainID(chainId: String): Chain
+    getChain: [Chain]
+    getChainbyID(chainId: String): Chain
 
 }
   `;

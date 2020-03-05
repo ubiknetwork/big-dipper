@@ -16,6 +16,7 @@ type Delegations {
 
  extend type Query {
     getDelegations: [Delegations]
+    getDelegationsByID(_id: ID): [Delegations]
 }
   
   `;

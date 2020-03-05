@@ -3,7 +3,7 @@ const { gql } = require('apollo-server');
 export const typeDefs = gql`
 
 type ValidatorSets {
-    _id: ID!
+    _id: ID
     block_height: Int
     validators: [Validators]
   }
@@ -17,6 +17,8 @@ type ValidatorSets {
  
  extend type Query {
     getValidatorSets: [ValidatorSets]
+    getValidatorSetsByID(_id: ID): ValidatorSets
+    getValidatorSetsByHeight(block_height: Int): ValidatorSets
 }
   
   `;

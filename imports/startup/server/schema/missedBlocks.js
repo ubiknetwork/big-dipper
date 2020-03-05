@@ -23,6 +23,8 @@ type MissedBlocks {
 
  extend type Query {
     getMissedBlocks: [MissedBlocks]
+    getMissedBlocksByHeight(blockHeight: Int): [MissedBlocks]
+    getMissedBlocksByVoter(voter: String): [MissedBlocks]
 }
   
   `;

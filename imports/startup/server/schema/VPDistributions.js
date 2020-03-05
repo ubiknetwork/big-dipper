@@ -22,6 +22,8 @@ type VPDistributions {
 
  extend type Query {
     getVPDistributions: [VPDistributions]
+    getVPDistributionsByID(_id: ID): [VPDistributions]
+    getVPDistributionsByHeight(height: Int): [VPDistributions]
 }
   
   `;

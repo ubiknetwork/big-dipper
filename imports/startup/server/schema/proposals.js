@@ -46,6 +46,8 @@ type Proposals {
  
  extend type Query {
     getProposals: [Proposals]
+    getProposalsByID(id: ID): [Proposals]
+    getProposalsByProposalID(proposalId: Int): [Proposals]
 }
   
   `;
