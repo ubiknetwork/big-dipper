@@ -17,7 +17,7 @@ type ValidatorRecords {
  extend type Query {
     getValidatorsRecords: [ValidatorRecords]
     getValidatorRecordsByAddress(address: String): ValidatorRecords
-    getValidatorRecordsByID(_id: id): ValidatorRecords
+    getValidatorRecordsByID(_id: ID): ValidatorRecords
     getValidatorRecordsByHeight(height: Int): [ValidatorRecords]
 
 }

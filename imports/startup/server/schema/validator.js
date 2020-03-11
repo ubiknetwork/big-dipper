@@ -56,7 +56,7 @@ type Commission{
   type Query {
     getValidators: [Validator]
     getValidatorByAddress(address: String): Validator  
-    getValidatorByID(_id: id): Validator
+    getValidatorByID(_id: ID): Validator
 }
 
   

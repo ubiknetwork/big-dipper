@@ -75,10 +75,10 @@ const resolvers = {
       getMissedBlocks: async () => queryData({ dataValue: MissedBlocks }),
       getMissedBlocksByHeight: async (blockHeight, { blockHeightValue }) => queryDataParams({ dataValue: MissedBlocks},{ dataParams: blockHeightValue }, {data: blockHeight}),
       getMissedBlocksByHeight: async (voter, { voterValue }) => queryDataParams({ dataValue: MissedBlocks},{ dataParams: voterValue }, {data: voter}),
-      getVPDistributions: async () => queryData({ dataValue:  }),
+      getVPDistributions: async () => queryData({ dataValue: VPDistributions }),
       getVPDistributionsByID: async (_id, { IDValue }) => queryDataParams({ dataValue: VPDistributions},{ dataParams: IDValue }, {data: _id}),
       getVPDistributionsByHeight: async (height, { heightValue }) => queryDataParams({ dataValue: VPDistributions},{ dataParams: heightValue }, {data: height}),
-VPDistributions
+
   }
 };
 
