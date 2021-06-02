@@ -59,6 +59,17 @@ export default class Activites extends Component {
         }
         
         switch (msg["@type"]){
+
+        // auth
+        case "/cosmos.auth.v1beta1.BaseAccount":
+            return <div>
+                <Account address={msg.signer} /> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg["@type"]} />
+            </div>
+        case "/cosmos.auth.v1beta1.ModuleAccount":
+            return <div>
+                <Account address={msg.signer} /> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg["@type"]} />
+            </div>
+
         // bank
         case "/cosmos.bank.v1beta1.MsgSend":
             let amount = '';
@@ -75,7 +86,13 @@ export default class Activites extends Component {
                 </div>
             </div>
 
-            // staking
+        // crisis
+        case "/cosmos.crisis.v1beta1.MsgVerifyInvariant":
+            return <div>
+                <Account address={msg.signer} /> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg["@type"]} />
+            </div>
+
+        // staking
         case "/cosmos.staking.v1beta1.MsgCreateValidator":
             return <p><Account address={msg.delegator_address}/> {(this.props.invalid)?<T>activities.failedTo</T>:''}<MsgType type={msg["@type"]} /> <T>activities.operatingAt</T> <span className="address"><Account address={msg.validator_address}/></span> <T>activities.withMoniker</T> <Link to="#">{msg.description.moniker}</Link><T>common.fullStop</T></p>
         case "/cosmos.staking.v1beta1.MsgEditValidator":
@@ -87,7 +104,7 @@ export default class Activites extends Component {
         case "/cosmos.staking.v1beta1.MsgBeginRedelegate":
             return <p><Account address={msg.delegator_address} /> {(this.props.invalid)?<T>activities.failedTo</T>:''}<MsgType type={msg["@type"]} /> <span className="text-warning">{new Coin(msg.amount.amount, msg.amount.denom).toString(6)}</span> <T>activities.from</T> <Account address={msg.validator_src_address} /> <T>activities.to</T> <Account address={msg.validator_dst_address} /><T>common.fullStop</T></p>
 
-            // gov
+        // gov
         case "/cosmos.gov.v1beta1.MsgSubmitProposal":
             const proposalId = _.get(this.props, 'events[2].attributes[0].value', null)
             const proposalLink = proposalId ? `/proposals/${proposalId}` : "#";
@@ -96,20 +113,38 @@ export default class Activites extends Component {
             return <p><Account address={msg.depositor} /> {(this.props.invalid)?<T>activities.failedTo</T>:''}<MsgType type={msg["@type"]} /> <em className="text-info">{msg.amount.map((amount,i) =>new Coin(amount.amount, amount.denom).toString(6)).join(', ')}</em> <T>activities.to</T> <Link to={"/proposals/"+msg.proposal_id}><T>proposals.proposal</T> {msg.proposal_id}</Link><T>common.fullStop</T></p>
         case "/cosmos.gov.v1beta1.MsgVote":
             return <p><Account address={msg.voter} /> {(this.props.invalid)?<T>activities.failedTo</T>:''}<MsgType type={msg["@type"]} />  <Link to={"/proposals/"+msg.proposal_id}><T>proposals.proposal</T> {msg.proposal_id}</Link> <T>activities.withA</T> <em className="text-info">{msg.option}</em><T>common.fullStop</T></p>
+        case "/cosmos.gov.v1beta1.TextProposal":
+            return <div>
+                <Account address={msg.signer} /> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg["@type"]} />
+            </div>
 
-            // distribution
+        // distribution
         case "/cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission":
             return <p><Account address={msg.validator_address} /> {(this.props.invalid)?<T>activities.failedTo</T>:''}<MsgType type={msg["@type"]} /> {(!this.props.invalid)?<T _purify={false} amount={new Coin(parseInt(events['withdraw_commission'][0].value), events['withdraw_commission'][0].value.replace(/[0-9]/g, '')).toString(6)}>activities.withAmount</T>:''}  <T>common.fullStop</T></p>
         case "/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward":
             return <p><Account address={msg.delegator_address} /> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg["@type"]} /> {(!this.props.invalid) ? events['withdraw_rewards'][0].value ? <T _purify={false} amount={new Coin(parseInt(events['withdraw_rewards'][0].value), events['withdraw_rewards'][0].value.replace(/[0-9]/g, '')).toString(6)}>activities.withAmount</T> : null :''} <T>activities.from</T> <Account address={msg.validator_address} /><T>common.fullStop</T></p>
-        case "/cosmos.distribution.v1beta1.MsgModifyWithdrawAddress":
+        case "/cosmos.distribution.v1beta1.MsgSetWithdrawAddress":
             return <p><Account address={msg.delegator_address}/> {(this.props.invalid)?<T>activities.failedTo</T>:''}<MsgType type={msg["@type"]} /></p>
+        case "/cosmos.distribution.v1beta1.CommunityPoolSpendProposal":
+            return <p><Account address={msg.delegator_address} /> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg["@type"]} /></p>
+        case "/cosmos.distribution.v1beta1.MsgFundCommunityPool":
+            return <p><Account address={msg.delegator_address} /> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg["@type"]} /></p>
 
-            // slashing
+        // upgrade
+        case "/cosmos.upgrade.v1beta1.SoftwareUpgradeProposal":
+            return <div>
+                <Account address={msg.signer} /> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg["@type"]} />
+            </div>
+        case "/cosmos.upgrade.v1beta1.CancelSoftwareUpgradeProposal":
+            return <div>
+                <Account address={msg.signer} /> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg["@type"]} />
+            </div>
+
+        // slashing
         case "/cosmos.slashing.v1beta1.MsgUnjail":
             return <p><Account address={msg.address}/> {(this.props.invalid)?<T>activities.failedTo</T>:''}<MsgType type={msg["@type"]} /><T>common.fullStop</T></p>
 
-            // ibc
+        // IBC
         case "/cosmos.IBCTransferMsg":
             return <div>
                 <Account address={msg.signer} /> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg["@type"]} />
@@ -119,7 +154,7 @@ export default class Activites extends Component {
                 <Account address={msg.signer} /> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg["@type"]} /> 
             </div>
 
-            // IBC Client
+        // IBC client
         case "/ibc.core.client.v1.MsgCreateClient":
             return <div>
                 <Account address={msg.signer} /> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg["@type"]} />
@@ -172,7 +207,7 @@ export default class Activites extends Component {
                 <Account address={msg.signer} /> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg["@type"]} />
             </div>
 
-            // IBC Channel
+        // IBC channel
         case "/ibc.core.channel.v1.MsgAcknowledgement":
             return <div>
                 <Account address={msg.signer} /> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg["@type"]} />
@@ -276,7 +311,7 @@ export default class Activites extends Component {
                 <Account address={msg.signer} /> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg["@type"]} />
             </div>
 
-            // IBC Connection
+        // IBC connection
         case "/ibc.core.connection.v1.MsgConnectionOpenAck":
             return <div>
                 <Account address={msg.signer} /> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg["@type"]} />

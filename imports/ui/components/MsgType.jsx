@@ -6,13 +6,24 @@ const T = i18n.createComponent();
 
 export const MsgType = (props) => {
     switch (props.type){
+
+    // auth
+    case "/cosmos.auth.v1beta1.BaseAccount":
+        return <Badge style={{ backgroundColor: "#2faca8"}}><T>messageTypes.baseAccount</T></Badge>
+    case "/cosmos.auth.v1beta1.ModuleAccount":
+        return <Badge style={{ backgroundColor: "#2faca8" }}><T>messageTypes.moduleAccount</T></Badge>
+
     // bank
     case "/cosmos.bank.v1beta1.MsgSend":
         return <Badge color="success"><T>messageTypes.send</T></Badge>
     case "/cosmos.bank.v1beta1.MsgMultiSend":
         return <Badge color="success"><T>messageTypes.multiSend</T></Badge>
-        
-        // staking
+
+    // crisis
+    case "/cosmos.crisis.v1beta1.MsgVerifyInvariant":
+        return <Badge style={{ backgroundColor: "#672fac" }}><T>messageTypes.verifyInvariant</T></Badge>
+
+    // staking
     case "/cosmos.staking.v1beta1.MsgCreateValidator":
         return <Badge color="warning"><T>messageTypes.createValidator</T></Badge>;
     case "/cosmos.staking.v1beta1.MsgEditValidator":
@@ -24,32 +35,45 @@ export const MsgType = (props) => {
     case "/cosmos.staking.v1beta1.MsgBeginRedelegate":
         return <Badge color="warning"><T>messageTypes.redelegate</T></Badge>;
         
-        // gov
+    // gov
     case "/cosmos.gov.v1beta1.MsgSubmitProposal":
         return <Badge color="info"><T>messageTypes.submitProposal</T></Badge>
     case "/cosmos.gov.v1beta1.MsgDeposit":
         return <Badge color="info"><T>messageTypes.deposit</T></Badge>
     case "/cosmos.gov.v1beta1.MsgVote":
         return <Badge color="info"><T>messageTypes.vote</T></Badge>;
+    case "/cosmos.gov.v1beta1.TextProposal":
+        return <Badge color="info"><T>messageTypes.textProposal</T></Badge>;
         
-        // distribution
+    // distribution
     case "/cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission":
         return <Badge color="secondary"><T>messageTypes.withdrawComission</T></Badge>;
     case "/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward":
         return <Badge color="secondary"><T>messageTypes.withdrawReward</T></Badge>;
-    case "/cosmos.distribution.v1beta1.MsgModifyWithdrawAddress":
-        return <Badge color="secondary"><T>messageTypes.modifyWithdrawAddress</T></Badge>;
+    case "/cosmos.distribution.v1beta1.MsgSetWithdrawAddress":
+        return <Badge color="secondary"><T>messageTypes.setWithdrawAddres</T></Badge>;
+    case "/cosmos.distribution.v1beta1.CommunityPoolSpendProposal":
+        return <Badge color="secondary"><T>messageTypes.communityPoolSpendProposal</T></Badge>;
+    case "/cosmos.distribution.v1beta1.MsgFundCommunityPool":
+        return <Badge color="secondary"><T>messageTypes.fundCommunityPool</T></Badge>;
 
-        // slashing
+    // upgrade
+    case "/cosmos.upgrade.v1beta1.SoftwareUpgradeProposal":
+        return <Badge color="secondary"><T>messageTypes.softwareUpgradeProposal</T></Badge>;
+    case "/cosmos.upgrade.v1beta1.CancelSoftwareUpgradeProposal":
+        return <Badge color="secondary"><T>messageTypes.cancelSoftwareUpgradeProposal</T></Badge>;
+
+    // slashing
     case "/cosmos.slashing.v1beta1.MsgUnjail":
         return <Badge color="danger"><T>messageTypes.unjail</T></Badge>;
         
-        // ibc
+    // IBC
     case "/cosmos.IBCTransferMsg":
         return <Badge style={{ backgroundColor: "#000080" }}><T>messageTypes.IBCTransfer</T></Badge>;
     case "/cosmos.IBCReceiveMsg":
         return <Badge style={{ backgroundColor: "#000080" }}><T>messageTypes.IBCReceive</T></Badge>;
 
+    // IBC client
     case "/ibc.core.client.v1.MsgCreateClient":
         return <Badge style={{ backgroundColor: "#000080" }}><T>messageTypes.IBCCreateClient</T></Badge>;
     case "/ibc.core.client.v1.MsgUpdateClient":
@@ -61,6 +85,7 @@ export const MsgType = (props) => {
     case "/ibc.core.client.v1.Height":
         return <Badge style={{ backgroundColor: "#000080" }}><T>messageTypes.IBCHeight</T></Badge>;
             
+    // IBC channel
     case "/ibc.core.channel.v1.MsgRecvPacket":
         return <Badge style={{ backgroundColor: "#000080" }}><T>messageTypes.IBCReceivePacket</T></Badge>;
     case "/ibc.core.channel.v1.Channel":
@@ -88,6 +113,7 @@ export const MsgType = (props) => {
     case "/ibc.core.channel.v1.MsgTimeoutOnClose":
         return <Badge style={{ backgroundColor: "#000080" }}><T>messageTypes.IBCTimeoutOnClose</T></Badge>;
 
+    // IBC connection
     case "/ibc.core.connection.v1.MsgConnectionOpenAck":
         return <Badge style={{ backgroundColor: "#000080" }}><T>messageTypes.IBCConnectionOpenAck</T></Badge>;
     case "/ibc.core.connection.v1.MsgConnectionOpenConfirm":
