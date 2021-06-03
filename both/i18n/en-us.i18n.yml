@@ -44,6 +44,10 @@ common:
     counterpartyConnectionID: 'Counterparty Connection ID'
     acknowledgement: 'Acknowledgement'
     proofAcknowledgement: 'Acknowledgement Proof'
+    status: 'Status'
+    from: 'From'
+    to: 'To'
+    amount: 'amount'
 navbar:
     siteName: 'BIG DIPPER'
     version: '-'
@@ -242,6 +246,7 @@ activities:
     withTitle: 'with title'
     withA: 'with a'
     withAmount: 'with <span class="text-info">{$amount}</span>'
+    didntReceive: "Didn't Receive"
 messageTypes:
     send: 'Send'
     multiSend: 'Multi Send'
