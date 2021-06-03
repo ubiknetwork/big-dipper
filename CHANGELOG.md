@@ -1,6 +1,9 @@
 # Changelog
 
 # [Unreleased]
+* [#536] Added missing / in staking parameters URL
+
+## kava-7-v1.0.0
 * Updated project to Kava-7 upgrade (Added HARD Protocol Support)
 
 ## kava-6-v1.0.0
