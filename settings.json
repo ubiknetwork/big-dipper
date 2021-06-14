@@ -40,8 +40,8 @@
         "banners": false
     },
     "remote":{
-        "rpc":"http://178.18.242.126:26657",
-        "api":"http://178.18.242.126:1317"
+        "rpc":"http://127.0.0.1:26657",
+        "api":"http://127.0.0.1:1317"
     },
     "debug": {
         "startTimer": true
