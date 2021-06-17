@@ -1,7 +1,8 @@
 {
     "public":{
-        "chainName": "Ubiknetwork",
+        "chainName": "Ubik Network",
         "chainId": "ubiknetwork-1",
+	"genesisTime": "2021-06-10T13:10:41.149429049Z",
         "gtm": "{Add your Google Tag Manager ID here}",
         "slashingWindow": 10000,
         "uptimeWindow": 250,
