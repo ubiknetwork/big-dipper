@@ -2,8 +2,8 @@
     "public":{
         "chainName": "Ubik Network",
         "chainId": "ubiknetwork-1",
-	"genesisTime": "2021-06-10T13:10:41.149429049Z",
-        "gtm": "{Add your Google Tag Manager ID here}",
+        "genesisTime": "2021-06-10T13:10:41.149429049Z",
+        "gtm": false,
         "slashingWindow": 10000,
         "uptimeWindow": 250,
         "initialPageSize": 30,
@@ -37,8 +37,8 @@
             "distribution": false
         },
         "coingeckoId": "ubik",
-        "networks": "https://gist.githubusercontent.com/kwunyeung/8be4598c77c61e497dfc7220a678b3ee/raw/bd-networks.json",
-        "banners": false
+        "networks": "https://gist.github.com/bambache/606377b7894aa0ab77fcef0fd1c7cf8b/raw/e0096eab4c7408bfb08a89cfda99ab7896c82e7c/bd-networks.json",
+        "banners": true
     },
     "remote":{
         "rpc":"http://127.0.0.1:26657",
