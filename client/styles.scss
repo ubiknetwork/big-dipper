@@ -1,9 +1,9 @@
-$forbole-red: #bd081c;
+$forbole-red: #3564CE;
 $primary: $forbole-red !default;
 
-@import "materia/variables";
+@import "slate/variables";
 @import "bootstrap";
-@import "materia/bootswatch";
+@import "slate/bootswatch";
 
 body {
     font-size: inherit !important;
