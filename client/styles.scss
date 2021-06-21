@@ -1,9 +1,9 @@
-$forbole-red: #3564CE;
+$forbole-red: #0043fe;
 $primary: $forbole-red !default;
 
-@import "slate/variables";
+@import "flatly/variables";
 @import "bootstrap";
-@import "slate/bootswatch";
+@import "flatly/bootswatch";
 
 body {
     font-size: inherit !important;

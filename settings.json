@@ -37,7 +37,7 @@
             "distribution": true
         },
         "coingeckoId": "ubik",
-        "networks": "https://gist.github.com/bambache/606377b7894aa0ab77fcef0fd1c7cf8b/raw/e0096eab4c7408bfb08a89cfda99ab7896c82e7c/bd-networks.json",
+        "networks": "https://gist.githubusercontent.com/bambache/606377b7894aa0ab77fcef0fd1c7cf8b/raw/e0096eab4c7408bfb08a89cfda99ab7896c82e7c/bd-networks.json",
         "banners": false
     },
     "remote":{
