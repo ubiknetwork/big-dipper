@@ -34,7 +34,7 @@ common:
     txOutOfGasMessage: 'Транзакция не осуществлена: недостаточный баланс. Убедитесь, что вашего баланса достаточно, чтобы покрыть комиссию.'
     estimatedGasPrice: 'Примерная цена газа <b>{$gasPrice}</b>.'
 navbar:
-    siteName: 'BIG DIPPER'
+    siteName: ' '
     version: '-'
     validators: 'Валидаторы'
     blocks: 'Блоки'
